@@ -12,18 +12,14 @@ def plotData(X, y, grid=False):
     """
     Plots the data points X and y into a new figure. Uses `+` for positive examples, and `o` for
     negative examples. `X` is assumed to be a Mx2 matrix
-
     Parameters
     ----------
     X : numpy ndarray
         X is assumed to be a Mx2 matrix.
-
     y : numpy ndarray
         The data labels.
-
     grid : bool (Optional)
         Specify whether or not to show the grid in the plot. It is False by default.
-
     Notes
     -----
     This was slightly modified such that it expects y=1 or y=0.
@@ -41,44 +37,34 @@ def plotData(X, y, grid=False):
 def svmTrain(X, Y, C, kernelFunction, tol=1e-3, max_passes=5, args=()):
     """
     Trains an SVM classifier using a  simplified version of the SMO algorithm.
-
     Parameters
     ---------
     X : numpy ndarray
         (m x n) Matrix of training examples. Each row is a training example, and the
         jth column holds the jth feature.
-
     Y : numpy ndarray
         (m, ) A vector (1-D numpy array) containing 1 for positive examples and 0 for negative examples.
-
     C : float
         The standard SVM regularization parameter.
-
     kernelFunction : func
         A function handle which computes the kernel. The function should accept two vectors as
         inputs, and returns a scalar as output.
-
     tol : float, optional
         Tolerance value used for determining equality of floating point numbers.
-
     max_passes : int, optional
         Controls the number of iterations over the dataset (without changes to alpha)
         before the algorithm quits.
-
     args : tuple
         Extra arguments required for the kernel function, such as the sigma parameter for a
         Gaussian kernel.
-
     Returns
     -------
     model :
         The trained SVM model.
-
     Notes
     -----
     This is a simplified version of the SMO algorithm for training SVMs. In practice, if
     you want to train an SVM classifier, we recommend using an optimized package such as:
-
     - LIBSVM   (http://www.csie.ntu.edu.tw/~cjlin/libsvm/)
     - SVMLight (http://svmlight.joachims.org/)
     - scikit-learn (http://scikit-learn.org/stable/modules/svm.html) which contains python wrappers
@@ -197,15 +183,12 @@ def svmTrain(X, Y, C, kernelFunction, tol=1e-3, max_passes=5, args=()):
 def svmPredict(model, X):
     """
     Returns a vector of predictions using a trained SVM model.
-
     Parameters
     ----------
     model : dict
         The parameters of the trained svm model, as returned by the function svmTrain
-
     X : array_like
         A (m x n) matrix where each example is a row.
-
     Returns
     -------
     pred : array_like
@@ -251,15 +234,12 @@ def svmPredict(model, X):
 def linearKernel(x1, x2):
     """
     Returns a linear kernel between x1 and x2.
-
     Parameters
     ----------
     x1 : numpy ndarray
         A 1-D vector.
-
     x2 : numpy ndarray
         A 1-D vector of same size as x1.
-
     Returns
     -------
     : float
@@ -271,15 +251,12 @@ def linearKernel(x1, x2):
 def visualizeBoundaryLinear(X, y, model):
     """
     Plots a linear decision boundary learned by the SVM.
-
     Parameters
     ----------
     X : array_like
         (m x 2) The training data with two features (to plot in a 2-D plane).
-
     y : array_like
         (m, ) The data labels.
-
     model : dict
         Dictionary of model variables learned by SVM.
     """
@@ -294,15 +271,12 @@ def visualizeBoundaryLinear(X, y, model):
 def visualizeBoundary(X, y, model):
     """
     Plots a non-linear decision boundary learned by the SVM and overlays the data on it.
-
     Parameters
     ----------
     X : array_like
         (m x 2) The training data with two features (to plot in a 2-D plane).
-
     y : array_like
         (m, ) The data labels.
-
     model : dict
         Dictionary of model variables learned by SVM.
     """
@@ -328,7 +302,6 @@ def getVocabList():
     Reads the fixed vocabulary list in vocab.txt and returns a cell array of the words
     %   vocabList = GETVOCABLIST() reads the fixed vocabulary list in vocab.txt
     %   and returns a cell array of the words in vocabList.
-
     :return:
     """
     vocabList = np.genfromtxt(join('Data', 'vocab.txt'), dtype=object)
@@ -338,32 +311,23 @@ def getVocabList():
 class PorterStemmer:
     """
     Porter Stemming Algorithm
-
     This is the Porter stemming algorithm, ported to Python from the
     version coded up in ANSI C by the author. It may be be regarded
     as canonical, in that it follows the algorithm presented in
-
     Porter, 1980, An algorithm for suffix stripping, Program, Vol. 14,
     no. 3, pp 130-137,
-
     only differing from it at the points maked --DEPARTURE-- below.
-
     See also http://www.tartarus.org/~martin/PorterStemmer
-
     The algorithm as described in the paper could be exactly replicated
     by adjusting the points of DEPARTURE, but this is barely necessary,
     because (a) the points of DEPARTURE are definitely improvements, and
     (b) no encoding of the Porter stemmer I have seen is anything like
     as exact as this version, even with the points of DEPARTURE!
-
     Vivake Gupta (v@nano.com)
-
     Release 1: January 2001
-
     Further adjustments by Santiago Bruno (bananabruno@gmail.com)
     to allow word input not restricted to one word per line, leading
     to:
-
     release 2: July 2008
     """
     def __init__(self):
@@ -373,7 +337,6 @@ class PorterStemmer:
         b[k0+1] ... ending at b[k]. In fact k0 = 0 in this demo program. k is
         readjusted downwards as the stemming progresses. Zero termination is
         not in fact used in the algorithm.
-
         Note that only lower case sequences are stemmed. Forcing to lower case
         should be done before stem(...) is called.
         """
@@ -398,7 +361,6 @@ class PorterStemmer:
         m() measures the number of consonant sequences between k0 and j.
         if c is a consonant sequence and v a vowel sequence, and <..>
         indicates arbitrary presence,
-
            <c><v>       gives 0
            <c>vc<v>     gives 1
            <c>vcvc<v>   gives 2
@@ -451,7 +413,6 @@ class PorterStemmer:
         cvc(i) is TRUE <=> i-2,i-1,i has the form consonant - vowel - consonant
         and also if the second c is not w,x or y. this is used when trying to
         restore an e at the end of a short  e.g.
-
            cav(e), lov(e), hop(e), crim(e), but
            snow, box, tray.
         """
@@ -487,23 +448,19 @@ class PorterStemmer:
 
     def step1ab(self):
         """step1ab() gets rid of plurals and -ed or -ing. e.g.
-
            caresses  ->  caress
            ponies    ->  poni
            ties      ->  ti
            caress    ->  caress
            cats      ->  cat
-
            feed      ->  feed
            agreed    ->  agree
            disabled  ->  disable
-
            matting   ->  mat
            mating    ->  mate
            meeting   ->  meet
            milling   ->  mill
            messing   ->  mess
-
            meetings  ->  meet
         """
         if self.b[self.k] == 's':
@@ -695,7 +652,9 @@ class Grader(SubmissionBase):
                       'Parameters (C, sigma) for Dataset 3',
                       'Email Processing',
                       'Email Feature Extraction']
-        super().__init__('support-vector-machines', part_names)
+        part_names_key = ['drOLk', 'JYt9Q', 'UHwLk', 'RIiFh']
+        assignment_key = 'xHfBJWXxTdKXrUG7dHTQ3g'
+        super().__init__('support-vector-machines', assignment_key, part_names, part_names_key)
 
     def __iter__(self):
         for part_id in range(1, 5):

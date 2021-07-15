@@ -10,20 +10,16 @@ from submission import SubmissionBase
 def normalizeRatings(Y, R):
     """
     Preprocess data by subtracting mean rating for every movie (every row).
-
     Parameters
     ----------
     Y : array_like
         The user ratings for all movies. A matrix of shape (num_movies x num_users).
-
     R : array_like
         Indicator matrix for movies rated by users. A matrix of shape (num_movies x num_users).
-
     Returns
     -------
     Ynorm : array_like
         A matrix of same shape as Y, after mean normalization.
-
     Ymean : array_like
         A vector of shape (num_movies, ) containing the mean rating for each movie.
     """
@@ -42,7 +38,6 @@ def normalizeRatings(Y, R):
 def loadMovieList():
     """
     Reads the fixed movie list in movie_ids.txt and returns a list of movie names.
-
     Returns
     -------
     movieNames : list
@@ -63,24 +58,19 @@ def computeNumericalGradient(J, theta, e=1e-4):
     """
     Computes the gradient using "finite differences" and gives us a numerical estimate of the
     gradient.
-
     Parameters
     ----------
     J : func
         The cost function which will be used to estimate its numerical gradient.
-
     theta : array_like
         The one dimensional unrolled network parameters. The numerical gradient is computed at
          those given parameters.
-
     e : float (optional)
         The value to use for epsilon for computing the finite difference.
-
     Returns
     -------
     numgrad : array_like
         The numerical gradient with respect to theta. Has same shape as theta.
-
     Notes
     -----
     The following code implements numerical gradient checking, and
@@ -105,12 +95,10 @@ def checkCostFunction(cofiCostFunc, lambda_=0.):
     It will output the  analytical gradients produced by your code and the numerical gradients
     (computed using computeNumericalGradient). These two gradient computations should result
     in very similar values.
-
     Parameters
     ----------
     cofiCostFunc: func
         Implementation of the cost function.
-
     lambda_ : float, optional
         The regularization parameter.
     """
@@ -149,20 +137,16 @@ def checkCostFunction(cofiCostFunc, lambda_=0.):
 def multivariateGaussian(X, mu, Sigma2):
     """
     Computes the probability density function of the multivariate gaussian distribution.
-
     Parameters
     ----------
     X : array_like
         The dataset of shape (m x n). Where there are m examples of n-dimensions.
-
     mu : array_like
         A vector of shape (n,) contains the means for each dimension (feature).
-
     Sigma2 : array_like
         Either a vector of shape (n,) containing the variances of independent features
         (i.e. it is the diagonal of the correlation matrix), or the full
         correlation matrix of shape (n x n) which can represent dependent features.
-
     Returns
     ------
     p : array_like
@@ -186,16 +170,13 @@ def visualizeFit(X, mu, sigma2):
     Visualize the dataset and its estimated distribution.
     This visualization shows you the  probability density function of the Gaussian distribution.
     Each example has a location (x1, x2) that depends on its feature values.
-
     Parameters
     ----------
     X : array_like
         The dataset of shape (m x 2). Where there are m examples of 2-dimensions. We need at most
         2-D features to be able to visualize the distribution.
-
     mu : array_like
         A vector of shape (n,) contains the means for each dimension (feature).
-
     sigma2 : array_like
         Either a vector of shape (n,) containing the variances of independent features
         (i.e. it is the diagonal of the correlation matrix), or the full
@@ -235,7 +216,9 @@ class Grader(SubmissionBase):
                       'Collaborative Filtering Gradient',
                       'Regularized Cost',
                       'Regularized Gradient']
-        super().__init__('anomaly-detection-and-recommender-systems', part_names)
+        part_names_key = ['WGzrg', '80Tcg', 'KDzSh', 'wZud3', 'BP3th', 'YF0u1']
+        assignment_key = 'JvOPouj-S-ys8KjYcPYqrg'
+        super().__init__('anomaly-detection-and-recommender-systems', assignment_key, part_names, part_names_key)
 
     def __iter__(self):
         for part_id in range(1, 7):
@@ -267,3 +250,4 @@ class Grader(SubmissionBase):
                 yield part_id, res
             except KeyError:
                 yield part_id, 0
+

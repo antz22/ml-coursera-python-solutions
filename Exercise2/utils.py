@@ -9,22 +9,17 @@ from submission import SubmissionBase
 def mapFeature(X1, X2, degree=6):
     """
     Maps the two input features to quadratic features used in the regularization exercise.
-
     Returns a new feature array with more features, comprising of
     X1, X2, X1.^2, X2.^2, X1*X2, X1*X2.^2, etc..
-
     Parameters
     ----------
     X1 : array_like
         A vector of shape (m, 1), containing one feature for all examples.
-
     X2 : array_like
         A vector of shape (m, 1), containing a second feature for all examples.
         Inputs X1, X2 must be the same size.
-
     degree: int, optional
         The polynomial degree.
-
     Returns
     -------
     : array_like
@@ -49,20 +44,16 @@ def plotDecisionBoundary(plotData, theta, X, y):
     """
     Plots the data points X and y into a new figure with the decision boundary defined by theta.
     Plots the data points with * for the positive examples and o for  the negative examples.
-
     Parameters
     ----------
     plotData : func
         A function reference for plotting the X, y data.
-
     theta : array_like
         Parameters for logistic regression. A vector of shape (n+1, ).
-
     X : array_like
         The input dataset. X is assumed to be  a either:
             1) Mx3 matrix, where the first column is an all ones column for the intercept.
             2) MxN, N>3 matrix, where the first column is all ones.
-
     y : array_like
         Vector of data labels of shape (m, ).
     """
@@ -119,7 +110,9 @@ class Grader(SubmissionBase):
                       'Predict',
                       'Regularized Logistic Regression Cost',
                       'Regularized Logistic Regression Gradient']
-        super().__init__('logistic-regression', part_names)
+        part_names_key = ['sFxIn', 'yvXBE', 'HerlY', '9fxV6', 'OddeL', 'aUo3H']
+        assignment_key = 'JvOPouj-S-ys8KjYcPYqrg'
+        super().__init__('logistic-regression', assignment_key, part_names, part_names_key)
 
     def __iter__(self):
         for part_id in range(1, 7):

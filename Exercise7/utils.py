@@ -11,17 +11,14 @@ from submission import SubmissionBase
 def displayData(X, example_width=None, figsize=(10, 10)):
     """
     Displays 2D data in a nice grid.
-
     Parameters
     ----------
     X : array_like
         The input data of size (m x n) where m is the number of examples and n is the number of
         features.
-
     example_width : int, optional
         THe width of each 2-D image in pixels. If not provided, the image is assumed to be square,
         and the width is the floor of the square root of total number of pixels.
-
     figsize : tuple, optional
         A 2-element tuple indicating the width and height of figure in inches.
     """
@@ -57,21 +54,17 @@ def featureNormalize(X):
     Normalizes the features in X returns a normalized version of X where the mean value of each
     feature is 0 and the standard deviation is 1. This is often a good preprocessing step to do when
     working with learning algorithms.
-
     Parameters
     ----------
     X : array_like
         An dataset which is a (m x n) matrix, where m is the number of examples,
         and n is the number of dimensions for each example.
-
     Returns
     -------
     X_norm : array_like
         The normalized input dataset.
-
     mu : array_like
         A vector of size n corresponding to the mean for each dimension across all examples.
-
     sigma : array_like
         A vector of size n corresponding to the standard deviations for each dimension across
         all examples.
@@ -90,19 +83,15 @@ def plotProgresskMeans(i, X, centroid_history, idx_history):
     only with 2D data. It plots data points with colors assigned to each centroid. With the
     previous centroids, it also plots a line between the previous locations and current locations
     of the centroids.
-
     Parameters
     ----------
     i : int
         Current iteration number of k-means. Used for matplotlib animation function.
-
     X : array_like
         The dataset, which is a matrix (m x n). Note since the plot only supports 2D data, n should
         be equal to 2.
-
     centroid_history : list
         A list of computed centroids for all iteration.
-
     idx_history : list
         A list of computed assigned indices for all iterations.
     """
@@ -135,31 +124,24 @@ def runkMeans(X, centroids, findClosestCentroids, computeCentroids,
               max_iters=10, plot_progress=False):
     """
     Runs the K-means algorithm.
-
     Parameters
     ----------
     X : array_like
         The data set of size (m, n). Each row of X is a single example of n dimensions. The
         data set is a total of m examples.
-
     centroids : array_like
         Initial centroid location for each clusters. This is a matrix of size (K, n). K is the total
         number of clusters and n is the dimensions of each data point.
-
     findClosestCentroids : func
         A function (implemented by student) reference which computes the cluster assignment for
         each example.
-
     computeCentroids : func
         A function(implemented by student) reference which computes the centroid of each cluster.
-
     max_iters : int, optional
         Specifies the total number of interactions of K-Means to execute.
-
     plot_progress : bool, optional
         A flag that indicates if the function should also plot its progress as the learning happens.
         This is set to false by default.
-
     Returns
     -------
     centroids : array_like
@@ -167,7 +149,6 @@ def runkMeans(X, centroids, findClosestCentroids, computeCentroids,
     idx : array_like
         A vector of size (m,) for cluster assignment for each example in the dataset. Each entry
         in idx is within the range [0 ... K-1].
-
     anim : FuncAnimation, optional
         A matplotlib animation object which can be used to embed a video within the jupyter
         notebook. This is only returned if `plot_progress` is `True`.
@@ -211,7 +192,9 @@ class Grader(SubmissionBase):
                       'PCA',
                       'Project Data (PCA)',
                       'Recover Data (PCA)']
-        super().__init__('k-means-clustering-and-pca', part_names)
+        part_names_key = ['7yN0U', 'G1WGM', 'ixOMV', 'AFoJK', 'vf9EL']
+        assignment_key = 'rGGTuM9gQoaikOnlhLII1A'
+        super().__init__('k-means-clustering-and-pca', assignment_key, part_names, part_names_key)
 
     def __iter__(self):
         for part_id in range(1, 6):

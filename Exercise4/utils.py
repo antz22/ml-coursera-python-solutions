@@ -61,18 +61,14 @@ def debugInitializeWeights(fan_out, fan_in):
     """
     Initialize the weights of a layer with fan_in incoming connections and fan_out outgoings
     connections using a fixed strategy. This will help you later in debugging.
-
     Note that W should be set a matrix of size (1+fan_in, fan_out) as the first row of W handles
     the "bias" terms.
-
     Parameters
     ----------
     fan_out : int
         The number of outgoing connections.
-
     fan_in : int
         The number of incoming connections.
-
     Returns
     -------
     W : array_like (1+fan_in, fan_out)
@@ -89,19 +85,15 @@ def computeNumericalGradient(J, theta, e=1e-4):
     """
     Computes the gradient using "finite differences" and gives us a numerical estimate of the
     gradient.
-
     Parameters
     ----------
     J : func
         The cost function which will be used to estimate its numerical gradient.
-
     theta : array_like
         The one dimensional unrolled network parameters. The numerical gradient is computed at
          those given parameters.
-
     e : float (optional)
         The value to use for epsilon for computing the finite difference.
-
     Notes
     -----
     The following code implements numerical gradient checking, and
@@ -126,12 +118,10 @@ def checkNNGradients(nnCostFunction, lambda_=0):
     analytical gradients produced by your backprop code and the numerical gradients
     (computed using computeNumericalGradient). These two gradient computations should result in
     very similar values.
-
     Parameters
     ----------
     nnCostFunction : func
         A reference to the cost function implemented by the student.
-
     lambda_ : float (optional)
         The regularization parameter value.
     """
@@ -193,7 +183,9 @@ class Grader(SubmissionBase):
                       'Sigmoid Gradient',
                       'Neural Network Gradient (Backpropagation)',
                       'Regularized Gradient']
-        super().__init__('neural-network-learning', part_names)
+        part_names_key = ['aAiP2', '8ajiz', 'rXsEO', 'TvZch', 'pfIYT']
+        assignment_key = 'xolSVXukR72JH37bfzo0pg'
+        super().__init__('neural-network-learning', assignment_key, part_names, part_names_key)
 
     def __iter__(self):
         for part_id in range(1, 6):

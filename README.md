@@ -1,11 +1,12 @@
 # [Coursera Machine Learning MOOC by Andrew Ng](https://www.coursera.org/learn/machine-learning) 
-# Python Programming Assignments
+# Solutions to Python Programming Assignments
 
 ![](machinelearning.jpg)
+This repository contains all the solutions to the python versions of the programming assignments for the [Machine Learning online class](https://www.coursera.org/learn/machine-learning) taught by Professor Andrew Ng.
 
-This repository contains solutions to the python versions of the programming assignments for the [Machine Learning online class](https://www.coursera.org/learn/machine-learning) taught by Professor Andrew Ng.
+Normally if I don't understand a problem, looking at the solution will help me understand how to approach it and solve it effectively. However, that's hard to do when the solutions are cryptic, not explained, and don't use good practices. This repository aims to help with those looking for solutions with in-depth explanations and sensible code. 
 
-The python versions of the assignments were taken from [@dibgerge](https://github.com/dibgerge)
+The python versions of the assignments are credited to [@dibgerge](https://github.com/dibgerge).
 
 - The assignments use [Jupyter Notebook](http://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html), which provides an intuitive flow easier than the original MATLAB/OCTAVE assignments.
 - The original assignment instructions have been completely re-written and the parts which used to reference MATLAB/OCTAVE functionality have been changed to reference its `python` counterpart.

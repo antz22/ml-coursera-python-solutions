@@ -6,7 +6,6 @@ from matplotlib import pyplot
 sys.path.append('..')
 from submission import SubmissionBase
 
-
 def normalizeRatings(Y, R):
     """
     Preprocess data by subtracting mean rating for every movie (every row).
@@ -122,7 +121,8 @@ def checkCostFunction(cofiCostFunc, lambda_=0.):
     numgrad = computeNumericalGradient(
         lambda x: cofiCostFunc(x, Y, R, num_users, num_movies, num_features, lambda_), params)
 
-    cost, grad = cofiCostFunc(params, Y, R, num_users,num_movies, num_features, lambda_)
+    cost, grad = cofiCostFunc(params, Y, R, num_users,
+                              num_movies, num_features, lambda_)
 
     print(np.stack([numgrad, grad], axis=1))
     print('\nThe above two columns you get should be very similar.'
@@ -184,13 +184,15 @@ def visualizeFit(X, mu, sigma2):
     """
 
     X1, X2 = np.meshgrid(np.arange(0, 35.5, 0.5), np.arange(0, 35.5, 0.5))
-    Z = multivariateGaussian(np.stack([X1.ravel(), X2.ravel()], axis=1), mu, sigma2)
+    Z = multivariateGaussian(
+        np.stack([X1.ravel(), X2.ravel()], axis=1), mu, sigma2)
     Z = Z.reshape(X1.shape)
 
     pyplot.plot(X[:, 0], X[:, 1], 'bx', mec='b', mew=2, ms=8)
 
     if np.all(abs(Z) != np.inf):
-        pyplot.contour(X1, X2, Z, levels=10**(np.arange(-20., 1, 3)), zorder=100)
+        pyplot.contour(X1, X2, Z, levels=10 **
+                       (np.arange(-20., 1, 3)), zorder=100)
 
 
 class Grader(SubmissionBase):
@@ -217,8 +219,9 @@ class Grader(SubmissionBase):
                       'Regularized Cost',
                       'Regularized Gradient']
         part_names_key = ['WGzrg', '80Tcg', 'KDzSh', 'wZud3', 'BP3th', 'YF0u1']
-        assignment_key = 'JvOPouj-S-ys8KjYcPYqrg'
-        super().__init__('anomaly-detection-and-recommender-systems', assignment_key, part_names, part_names_key)
+        assignment_key = 'gkyVYM98RcWlmQ9s84QNKA'
+        super().__init__('anomaly-detection-and-recommender-systems',
+                         assignment_key, part_names, part_names_key)
 
     def __iter__(self):
         for part_id in range(1, 7):
@@ -231,23 +234,30 @@ class Grader(SubmissionBase):
                 elif part_id == 2:
                     res = np.hstack(func(self.yval, self.pval)).tolist()
                 elif part_id == 3:
-                    J, grad = func(self.params, self.Y, self.R, self.n_u, self.n_m, self.n)
+                    J, grad = func(self.params, self.Y, self.R,
+                                   self.n_u, self.n_m, self.n)
                     res = J
                 elif part_id == 4:
-                    J, grad = func(self.params, self.Y, self.R, self.n_u, self.n_m, self.n, 0)
+                    J, grad = func(self.params, self.Y, self.R,
+                                   self.n_u, self.n_m, self.n, 0)
                     xgrad = grad[:self.n_m*self.n].reshape(self.n_m, self.n)
-                    thetagrad = grad[self.n_m*self.n:].reshape(self.n_u, self.n)
-                    res = np.hstack([xgrad.ravel('F'), thetagrad.ravel('F')]).tolist()
+                    thetagrad = grad[self.n_m *
+                                     self.n:].reshape(self.n_u, self.n)
+                    res = np.hstack(
+                        [xgrad.ravel('F'), thetagrad.ravel('F')]).tolist()
                 elif part_id == 5:
-                    res, _ = func(self.params, self.Y, self.R, self.n_u, self.n_m, self.n, 1.5)
+                    res, _ = func(self.params, self.Y, self.R,
+                                  self.n_u, self.n_m, self.n, 1.5)
                 elif part_id == 6:
-                    J, grad = func(self.params, self.Y, self.R, self.n_u, self.n_m, self.n, 1.5)
+                    J, grad = func(self.params, self.Y, self.R,
+                                   self.n_u, self.n_m, self.n, 1.5)
                     xgrad = grad[:self.n_m*self.n].reshape(self.n_m, self.n)
-                    thetagrad = grad[self.n_m*self.n:].reshape(self.n_u, self.n)
-                    res = np.hstack([xgrad.ravel('F'), thetagrad.ravel('F')]).tolist()
+                    thetagrad = grad[self.n_m *
+                                     self.n:].reshape(self.n_u, self.n)
+                    res = np.hstack(
+                        [xgrad.ravel('F'), thetagrad.ravel('F')]).tolist()
                 else:
                     raise KeyError
                 yield part_id, res
             except KeyError:
                 yield part_id, 0
-

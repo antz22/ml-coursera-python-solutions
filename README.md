@@ -1,9 +1,11 @@
 <p align="center">
     <a href="https://www.coursera.org/learn/machine-learning">
-        <img width="120" height="160" src="https://github.com/antz22/ml-coursera-python-solutions/blob/master/machinelearning.jpg">
+        <img width="160" height="200" src="https://github.com/antz22/ml-coursera-python-solutions/blob/master/machinelearning.jpg">
     </a>
-    <h3 align="center">Machine Learning Course by Andrew Ng</h3>
-    <p align="center">Solutions and explanations to the python programming assignments for the coursera Machine Learning course.</p>
+    <a href="https://www.coursera.org/learn/machine-learning">
+        <h1 align="center">Machine Learning Course by Andrew Ng</h1>
+    </a>
+    <p width="70%" align="center">Solutions and explanations to the python programming assignments for the coursera Machine Learning course.</p>
 </p>
 
 ## Introduction
